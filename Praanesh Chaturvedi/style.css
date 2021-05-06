@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Open Sans', sans-serif;
+  user-select: none;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  background-color: #101010;
+  overflow: hidden;
+}
+
+.wrapper .date {
+  width: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 30px;
+}
+
+.wrapper .date h5 {
+  background-color: crimson;
+  font-size: 16px;
+  color: white;
+  padding: 4px 10px;
+  margin: 0 8px 0 0;
+  border-radius: 5px;
+}
+
+.wrapper .date h6 {
+  color: #959595;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+.wrapper .title {
+  width: 80%;
+  margin: 0 auto;
+  padding: 8rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: inherit;
+}
+
+.wrapper .title h5 {
+  color: crimson;
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper .title h2 {
+  color: white;
+  font-size: 48px;
+  margin: 4px 0 8px 0;
+  padding: 0;
+}
+
+.wrapper .title p {
+  color: #989898;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper .title .social-icons {
+  width: 100%;
+  margin: 20px auto;
+  padding: 10px 0;
+  background-color: inherit;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.wrapper .title .social-icons a {
+  text-decoration: none;
+  margin-right: 18px;
+}
+
+.wrapper .title .social-icons a i {
+  font-size: 22px;
+  color: white;
+  transition: color 0.4s ease;
+}
+
+.wrapper .title .social-icons a i:hover {
+  color: crimson;
+}
+
+.wrapper .btn {
+  width: 42px;
+  height: 46px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0 0 0 8px;
+  float: right;
+  right: 0;
+  bottom: 80px;
+  outline: none;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  cursor: pointer;
+  background-color: #161616;
+  box-shadow: 0px 0px 1px 1px black;
+  transition: right 0.3s ease-out;
+}
+
+.wrapper .btn.active {
+  right: 100%;
+}
+
+.wrapper .btn i {
+  font-size: 20px;
+  color: white;
+  animation-name: animation;
+  animation-duration: 4s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.menu {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  right: -100%;
+  background-color: #101010;
+  overflow: hidden;
+  transition: right 0.3s ease-out;
+  /* border-left: 1px solid white; */
+}
+
+.menu .menus {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 0;
+  background-color: inherit;
+  position: absolute;
+}
+
+.menu .menus .close-btn {
+  float: right;
+  position: relative;
+  cursor: pointer;
+  top: 30px;
+  right: 30px;
+  width: 35px;
+  height: 35px;
+  margin: 0;
+  padding: auto;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: crimson;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 3s ease;
+}
+
+.menu .menus .close-btn i {
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  animation-name: animation;
+  animation-duration: 4s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.menu .menus .close-btn.active {
+  opacity: 1;
+
+}
+
+.menu .menus ul {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding: 14rem 0;
+  position: relative;
+}
+
+.menu .menus ul li {
+  list-style: none;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+  right: 0;
+  position: relative;
+}
+
+.menu .menus ul li:nth-child(1).active,
+.menu .menus ul li:nth-child(3).active {
+  animation-name: animation-first;
+  animation-duration: 0.6s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+}
+
+.menu .menus ul li:nth-child(2).active,
+.menu .menus ul li:nth-child(4).active {
+  animation-name: animation-last;
+  animation-duration: 0.6s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+}
+
+.menu .menus ul li a {
+  text-decoration: none;
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.menu .menus ul li a:hover {
+  color: crimson;
+  transition: 0.6s ease;
+  font-size: 20px;
+}
+
+.menu.active {
+  right: 0;
+}
+
+@keyframes animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .wrapper .title h5 {
+    font-size: 17px;
+  }
+
+  .wrapper .title h2 {
+    color: white;
+    font-size: 34px;
+    margin: 4px 0 8px 0;
+    padding: 0;
+  }
+
+  .wrapper .title p {
+    color: #989898;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .wrapper .title .social-icons a i {
+    font-size: 18px;
+  }
+
+  .wrapper .date h5 {
+    font-size: 13px;
+    padding: 2px 7px;
+  }
+
+  .wrapper .date h6 {
+    font-size: 13px;
+  }
+}
+
+@keyframes animation-first {
+  0% {
+    right: -100%;
+  }
+
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes animation-last {
+  0% {
+    right: 100%;
+  }
+
+  100% {
+    right: 0;
+  }
+}
